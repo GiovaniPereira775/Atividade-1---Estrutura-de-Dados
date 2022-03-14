@@ -2,32 +2,32 @@
 
 int main ()
 {
-    int m[4][4];
-    int s[10];
-    int L, C;
+    int m[4][4]; //criando a matriz principal
+    int s[10]; //criando a mariz soma
+    int L, C; //criando as variaveis uteis
     
-    for(L = 0; L < 10; L++){
+    for(L = 0; L < 10; L++){ //zerando o valor de s[L]
         s[L] = 0;
     }
-    for(L = 0; L <4; L++){
-        for(C = 0; C < 4; C++){
-            printf("\n m[%d][%d]= ", L, C);
+    for(L = 0; L <4; L++){ //for de L (linhas)
+        for(C = 0; C < 4; C++){ //for de C (colunas)
+            printf("\n m[%d][%d]= ", L, C); //pede o valor de tais elementos
             scanf("%d", &m[L][C]);
-            s[L] = s[L] + m[L][C];
-            s[4+C] = s[4+C] + m[L][C];
+            s[L] = s[L] + m[L][C]; //soma de linhas
+            s[4+C] = s[4+C] + m[L][C]; //soma de colunas
         }
-        s[8] = s[8] + m[L][L];
-        s[9] = s[9] + m[L][3-L];
+        s[8] = s[8] + m[L][L]; //soma da diagonal principal
+        s[9] = s[9] + m[L][3-L]; //soma da diagonal invertida
     }
     
-    int cont = 0;
-    for (L = 1; L < 10; L++){
-        if (s[0] /= s[L]){
-            cont++;
+    int cont = 0; //criação do contador
+    for (L = 1; L < 10; L++){ //contar 10 vezes
+        if (s[0] /= s[L]){ 
+            cont++; //aumenta o valor do contador
         }
-        if(cont == 0){
+        if(cont == 0){ //se o contador nao subir, entao o resultado é um quadrado magico
             printf("\nÉ um quadrado magico");
-        }else{
+        }else{ //se o contador subir, o resultado será um quadrado magico
             printf("\nNão é um quadrado magico");
         }
     }
