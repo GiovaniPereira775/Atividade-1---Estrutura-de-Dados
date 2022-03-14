@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main ()
+{
+    int m[4][4];
+    int s[10];
+    int L, C;
+    
+    for(L = 0; L < 10; L++){
+        s[L] = 0;
+    }
+    for(L = 0; L <4; L++){
+        for(C = 0; C < 4; C++){
+            printf("\n m[%d][%d]= ", L, C);
+            scanf("%d", &m[L][C]);
+            s[L] = s[L] + m[L][C];
+            s[4+C] = s[4+C] + m[L][C];
+        }
+        s[8] = s[8] + m[L][L];
+        s[9] = s[9] + m[L][3-L];
+    }
+    
+    int cont = 0;
+    for (L = 1; L < 10; L++){
+        if (s[0] /= s[L]){
+            cont++;
+        }
+        if(cont == 0){
+            printf("\nÉ um quadrado magico");
+        }else{
+            printf("\nNão é um quadrado magico");
+        }
+    }
+    
+  return 0;
+}
