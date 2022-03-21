@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+	char c; //Criação da variavel
+	char *p; //Criação do ponteiro
+
+	c = 'z'; //Atribuindo valor á C
+
+	printf("O valor de C = %c , o endereço de C = %p \n\n\n", c, &c); //Mostrar na tela o valor de C e seu Endereço
+
+	//Associar C a P
+	p = &c; //Operador de acesso
+
+	printf("O valor do dado apontado por P é: %c , o valor apontado por P é:  %p , e o endereço de P= %p \n\n", *p, p, &p);
+
+	//Trocando o valor pelo P 
+	*p = 'h'; // *p acessa o valor de C
+
+	printf("O valor do dado apontado por P é: %c , o valor apontado por P é:  %p , e o endereço de P= %p\n\n", *p, p, &p);
+
+	//mostrando o valor de C para ver se realmente foi alterado
+	printf("O valor de C = %c , o endereço de C = %p \n\n", c, &c);
+	getchar();
+	return 0;
+
+	
+}
+
