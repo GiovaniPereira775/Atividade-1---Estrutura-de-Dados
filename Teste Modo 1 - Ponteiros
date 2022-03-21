@@ -1,3 +1,5 @@
+/* Acessar o endereço de outra variavel de mesmo tipo */
+
 #include <stdio.h>
 
 int main()
