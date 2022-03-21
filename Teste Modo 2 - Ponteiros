@@ -1,0 +1,22 @@
+/* Acessando diretamente a memoria, sem a necessidade de uma outra variavel */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	char *p;
+	p = (char*)malloc(sizeof(char));
+
+	if (p == NULL) {
+		printf("Sem memoria");
+	}
+	else {
+		//deu certo
+		*p = 'F';
+		printf("O valor do dado de P = %c, o Endereco apontado por P= %p, e o endereco de P= %p", *p, p, &p);
+
+		free(p);
+	}
+	getchar();
+	return 0;
+}
