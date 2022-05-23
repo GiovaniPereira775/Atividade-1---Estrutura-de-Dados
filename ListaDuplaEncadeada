@@ -94,8 +94,47 @@ void listaD remover(lista **ini, **f) {
 
 		}else{
 			//remove no meio
-			enc->ant->prox = enc->prox;
-			enc->prox->ant = enc->ant
+			listaD *enc = localizar((*ini)->prox, raproc);
+			if (enc == NULL) {
+				printf("Valor nao encontrado")
+			}
+			else {
+				enc->ant->prox = enc->prox;
+				enc->prox->ant = enc->ant;
+				free(enc);
+			}
+
+			
 		}
+	}
+}
+
+void listaD *localizarRemover(listaD *enc, unsigned long int raproc) {
+	while (raproc >= enc->ra)
+		enc = enc->prox;
+	if (raproc == enc->ra) {
+		return enc;
+	}else{
+		return NULL;
+	}
+}
+
+void listar(listaD *ini, listaD *f, char op) {
+	if (ini == NULL) {
+		printf("Lista Vazia");
+
+	}
+	else if (op == 'c') {
+		//inicio pro fim (crescente)
+		while (ini != NULL)
+			printf("\nRA: %llu, \n Nome: %s", ini->ra, ini->nome);
+		ini = ini->prox;
+	}
+	else{
+		//fim pro inicio (decrescente)
+		while (f != NULL)
+			printf("\nRA: %llu, \n Nome: %s", ini->ra, ini->nome);
+		f->ra, f->nome
+			f = f->prox;
 	}
 }
