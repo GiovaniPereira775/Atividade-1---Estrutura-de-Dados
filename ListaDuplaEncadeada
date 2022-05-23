@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+
+void inserir(listaD **ini, listaD **f){
+
+	listaD *aux = novoelemento();
+
+	if (*ini == NULL) {
+		//inserção no 1º elemento
+
+		aux->ant = NULL;
+		aux->prox = NULL;
+		*ini = *f = aux;
+	}
+	else if (aux->ra <= *ini->ra) {
+		//insere inicio
+		aux->ant = NULL;
+		aux->prox = *ini;
+
+		(*ini)->ant = aux;
+
+		*ini = aux
+	}
+	else if(aux->ra >= (*f)->ra{
+		//insere no fim
+
+		aux->ant = *f;
+		aux->prox = NULL;
+
+		(*f)->prox = aux;
+
+		*f = aux;
+	}
+	else {
+		//inserção no meio
+		listaD *enc = localizar((*ini)->prox, aux->ra);
+		aux->ant = enc->ant;
+		aux->prox = enc;
+
+		enc->ant->prox = aux;
+		enc->ant = aux;
+
+	}
+}
+
+void listaD *localizarInsercao(listaD *enc, unsigned long int raproc) {
+	while (raproc <= enc->ra)
+		enc = enc->prox;
+
+	return enc;
+}
+void listaD *removeInicio(listaD *ini) {
+	if (*ini == NULL) {
+		printf("lista vazia");
+		
+	}
+	else {
+		listaD *aux = ini->prox;
+		aux->ant = NULL;
+		free(ini);
+		return aux;
+	}
+	return ini;
+}
+
+void listaD remover(lista **ini, **f) {
+	if (*ini == NULL){
+		printf("lista vazia");
+
+	}
+	else if (*ini == *f) {
+		free(*ini);
+		*ini = NULL;
+	}
+	else {
+		unsigned long int raproc;
+		printf("qual o valor a remover");
+		scanf("llu", &raproc);
+		
+		if(raproc < (*ini)->ra && raproc > (*f)->ra){
+			printf("valor nao encontrado");
+		}
+		else if (raproc == (*ini)->ra) {
+
+			*ini = removeInicio(*ini);
+		}
+		else if (raproc == (*f)->ra) {
+			//remove no fim
+			listaD *aux = (*f)->ant;
+			aux->prox = null;
+			free(*f);
+
+		}else{
+			//remove no meio
+			enc->ant->prox = enc->prox;
+			enc->prox->ant = enc->ant
+		}
+	}
+}
